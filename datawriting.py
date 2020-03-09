@@ -8,9 +8,9 @@ from datetime import datetime
 
 file= open("User_Detail.txt","a+")
 option=input("Do you want to start a new transition? Yes/No\n")
+option=option.lower()
 
-
-while option=="Yes":
+while option=="yes":
     From=str(input("Please input your user name: "))
     To=str(input("Please input your trade destination: "))
     Amount=str(input("Please input amount of this transition: "))
@@ -31,6 +31,7 @@ while option=="Yes":
     exec(open('blockchain.py').read())
     file= open("User_Detail.txt","a+")
     option=input("Do you want to start a new transition? Yes/No\n")
-    if option=="No":
+    option=option.lower()
+    if option=="no":
         file.close()
         break

@@ -126,8 +126,9 @@ if index==0:
                     'nonce':nonce,
                     'prehash':Pre_hash,
                     }
-        with open('Block_Chain.txt', 'a+') as f:
-            print(blockchain, file=f)
-        file.close()
+            with open('Block_Chain.txt', 'a+') as f:
+                print(blockchain, file=f)
+                file.close()
+
             
 
