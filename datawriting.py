@@ -6,6 +6,28 @@ Created on Tue Mar  3 09:50:50 2020
 """
 from datetime import datetime
 
+def listToString(s):      
+    str1 = ""  
+    for ele in s:  
+        str1 += ele   
+    return str1
+
+def tail(file, n=1, bs=1024):
+    f = open(file)
+    f.seek(0,2)
+    l = 1-f.read(1).count('\n')
+    B = f.tell()
+    while n >= l and B > 0:
+            block = min(bs, B)
+            B -= block
+            f.seek(B, 0)
+            l += f.read(block).count('\n')
+    f.seek(B, 0)
+    l = min(l,n)
+    lines = f.readlines()[-l:]
+    f.close()
+    return lines
+
 file= open("User_Detail.txt","a+")
 option=input("Do you want to start a new transition? Yes/No\n")
 option=option.lower()
