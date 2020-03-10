@@ -54,7 +54,7 @@ with open("Block_Chain.txt") as f:
         index=int(index)
         index=index+1
         nonce=str(random.randint(0,10000000000)+int(timestamp)*random.randint(0,9))
-        Pre_HASH=check[22:86]
+        Hash=check[22:86]
         
 if index==0:
     data="first block"
@@ -88,11 +88,6 @@ blockchain={
        'data':data,
        'nonce':nonce,
        }
-
-if index!=0:
-    if Pre_hash!=Pre_HASH:
-        print("ERROR")
-        exit()
 
 with open('Block_Chain.txt', 'a+') as f:
     print(blockchain, file=f)
